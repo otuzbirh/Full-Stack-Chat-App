@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  chat-backend:
+    container_name: chat-backend
+    build: ./chat-backend
+    volumes:
+      - './chat-backend:/usr/src/app'
+      - './chat-backend/package.json:/usr/src/package.json'
+    ports:
+      - '4000:4000'
+  chat-frontend:
+    container_name: chat-frontend
+    build: ./chat-frontend
+    volumes:
+      - './chat-frontend:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '3000:3000'
+
